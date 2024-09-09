@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Usuário</title>
+</head>
+<body style="color: blue;">
+    <div style="margin-left: 150px;">
+    <h1>Formulário</h1>
+    <br>
+    Nome:
+    <br>
+    <input type="text" placeholder="Digite seu nome completo:" minlength="15" maxlength="80" required>
+    <br>
+    <br>
+    Data de Nascimento:
+    <br>
+    <input type="date" required>
+    <br>
+    <br>
+    Sexo:
+    <br>
+    <input type="radio"> Feminino 
+    <br>
+    <input type="radio"> Masculino
+    <br>
+    <input type="radio"> Outro
+    <br>
+    <input type="radio"> Prefiro não marcar
+    <br>
+    <br>
+    CPF
+    <br>
+    <input type="number" placeholder="Digite seu CPF:" required>
+    <br>
+    <br>
+    <h2>Informações Complementares</h2>
+    <br>
+    E-mail
+    <br>
+    <input type="text" placeholder="Digite seu e-mail:" required>
+    <br>
+    <br>
+    Para contato:
+    <br>
+    <input type="number" placeholder="Telefone Celular:" required>
+    <br>
+    <br>
+    <input type="number" placeholder="Telefone Fixo:">
+    <br>
+    <br>
+    Endereço:
+    <br>
+    <input type="number" placeholder="Digite seu CEP:">
+    <br>
+    <br>
+    <input type="text" placeholder="Seu endereço completo:" disabled>
+    <br>
+    <br>
+    <input type="text" placeholder="Complemento:">
+    <br>
+    <br>
+    <h2>Crie seu login</h2>
+    <br>
+    <input type="text" placeholder="Digite seu login:" maxlength="6" required>
+    <br>
+    <br>
+    <input type="password" placeholder="Digite sua senha:" maxlength="8" required>
+    <br>
+    <br>
+    <button type="submit">CONFIRMAR SENHA</button>
+    <br>
+    <br>
+    <button type="submit">ENVIAR</button>    <button type="reset">LIMPAR TELA</button>
+    </div>
+</body>
+</html>
