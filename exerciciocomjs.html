@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="exercicio.css">
+    <title>Document</title>
+</head>
+<body>
+    <p id="resultado">RESULTADO VAI APARECER AQUI!</p>
+
+    <script type="text/javascript">
+        
+        var n1 = parseFloat(prompt("Digite a primeira nota:"));
+        var n2 = parseFloat(prompt("Digite a segunda nota:"));
+
+        var media = (n1 + n2)/2;
+
+        document.getElementById("resultado").innerHTML="A média das notas é: " + media;
+    </script>
+</body>
+</html>
