@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+
+        var n1 = parseFloat(prompt("Insira a primeira nota: "))   
+        var n2 = parseFloat(prompt("Insira a segunda nota: "))
+        
+        var media = (n1+n2)/2
+
+        function mostrasituacao(media) {
+            if (media >= 7) {
+                alert('Aprovado');
+            } else {
+                alert('Reprovado');
+            }
+        }
+    </script>
+
+    <button onclick="mostrasituacao(media)">Saber média</button>
+    
+
+</body>
+
+
+
+</html>
