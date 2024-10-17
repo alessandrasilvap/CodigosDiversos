@@ -53,7 +53,7 @@
                 <br>
                 <br>
                 <strong><p>Telefone:</p></strong>
-                <input type="text" placeholder=" (DD) 9 9999-9999" size="50" required>
+                <input type="text" placeholder=" (DD) 99999-9999" id="telefone" maxlength="11" size="50" required oninput="mascaraTelefone(this)">
                 <br>
                 <br>
                 <input type="text" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" placeholder="Digite seu CPF" size="50" required>
@@ -65,9 +65,9 @@
             </div>
         </section>
         <section id="botoes">
-            <button onclick="confirmacaosenha()"><a href="telalogin.html">CADASTRAR</a></button> 
+            <button onclick="confirmacaosenha()" ><a href="telalogin.html">CADASTRAR</a></button> 
             <button><a href="telalogin.html">VOLTAR</a></button> 
-            <button value="reset">LIMPAR</button>
+            <button type="reset">LIMPAR</button>
         </section>
     </form>
 </body>
