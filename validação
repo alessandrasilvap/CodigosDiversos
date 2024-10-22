@@ -1,0 +1,70 @@
+[26/04, 19:13] Sílvio Eutimio Embratel2: Segue exemplo de validação e busca de CEP que o colega de turma fez:
+cep.addEventListener("focusout", async () => {
+  try {
+    const onlyNumbers = /^[0-9]+$/;
+    const cepValid = /^[0-9]{8}$/;
+
+    if (!onlyNumbers.test(cep.value) || !cepValid.test(cep.value)) {
+      throw { cep_error: "CEP inválido." };
+    }
+
+    const response = await fetch(`https://viacep.com.br/ws/${cep.value}/json/`);
+
+    if (!response.ok) {
+      throw await response.json();
+    }
+
+    const responseCep = await response.json();
+
+    address.value = responseCep.logradouro;
+    bairro.value = responseCep.bairro;
+    cidade.value = responseCep.localidade;
+    complemento.value = responseCep.complemento;
+    uf.value = responseCep.uf;
+
+    successInput(address);
+    successInput(bairro);
+    successInput(cidade);
+    successInput(uf);
+  } catch (error) {
+    if (error?.cep_error) {
+      message.textContent = error.cep_error;
+      setTimeout(() => {
+        message.textContent = "";
+      }, 5000);
+    }
+    console.log(error);
+  }
+[26/04, 19:16] Sílvio Eutimio Embratel2: Esse é um exemplo de validação de CPF que um colega de turma fez:
+function isCPF(cpf) {
+  cpf = cpf.replace(/\.|-/g, "");
+  soma = 0;
+  soma += cpf[0] * 10;
+  soma += cpf[1] * 9;
+  soma += cpf[2] * 8;
+  soma += cpf[3] * 7;
+  soma += cpf[4] * 6;
+  soma += cpf[5] * 5;
+  soma += cpf[6] * 4;
+  soma += cpf[7] * 3;
+  soma += cpf[8] * 2;
+  soma = (soma * 10) % 11;
+  if (soma == 10 || soma == 11) soma = 0;
+  if (soma != cpf[9]) return false;
+
+  soma = 0;
+  soma += cpf[0] * 11;
+  soma += cpf[1] * 10;
+  soma += cpf[2] * 9;
+  soma += cpf[3] * 8;
+  soma += cpf[4] * 7;
+  soma += cpf[5] * 6;
+  soma += cpf[6] * 5;
+  soma += cpf[7] * 4;
+  soma += cpf[8] * 3;
+  soma += cpf[9] * 2;
+  soma = (soma * 10) % 11;
+  if (soma == 10 || soma == 11) soma = 0;
+  if (soma != cpf[10]) return false;
+  return true;
+}
