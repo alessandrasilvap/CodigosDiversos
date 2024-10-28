@@ -1,1 +1,45 @@
+body {
+    background-color: #ff922d; /*Cor do fundo*/
+}
 
+form { /*Formulário todo*/
+    width: 30%; /*Espaçamento entre o conteúdo e borda*/
+    margin: 0 auto;
+    font-family: "Helvetica Neue", "Arial", "Noto Sans", "Sans-serif"; /*Fonte das letras*/
+    background-color: white; /*Cor da caixa do formulário*/
+}
+
+h2 {
+    text-align: center; /*Alinhamento do título no centro*/
+    color: #ff922d; /*Cor do título*/
+}
+
+h3 {
+    text-align: center; /*Alinhamento do subtítulo no centro*/
+    color: #1e57a4; /*Cor do subtítulo*/
+    margin-left: 0; /*Move as legendas dos input para a esquerda*/
+    margin-top: 3%; /*Seria para mover para baixo*/
+}
+
+input { /*Formatação dos campos*/
+    border-radius: 1em; /*Bordas arredondadas*/
+    padding: 5px; /*Espaçamento entre o conteúdo e borda*/
+    margin-left: 5%; /*Espaço entre caixa e margem da página*/
+    height: 6%; /*Altura da caixa*/
+}
+
+#botoes:hover { /*Ativa borda e sombra ao passar o mouse*/
+    border: 1px solid blue; /*Especifica o tipo e a espessura*/
+    box-shadow: 1px 1px 2px silver;
+}
+
+#botoes { /*Posição dos botões*/
+    margin-top: 5%; /*Move os botões 5% para baixo*/
+    text-align: center; /*Alinha o texto no centro*/
+    width: 20em; /*Largura*/
+    height: 2em; /*Altura*/
+    top: 32%; /*Move ambos os button 32% para baixo*/
+    margin-left: 23%; /*Move o button 93% para a esquerda*/
+    background-color: #1e57a4; /*Cor da caixa*/
+    color: white; /*Cor das letras*/
+}
