@@ -33,4 +33,29 @@ echo "<hr>";
 foreach($carros as $valor) {
   exho $valor . "<br>";
 }
+
+//Arrays associativos
+$pessoa = array("nome" => "Alessandra", "idade" => 20, "altura" => 1.54);
+$pessoa["cidade"] = "Rio de Janeiro";
+
+foreach($pessoa as $indice => $valor) {
+  echo $indice . " : " . $valor . "<br>";
+}
+
+//Arrays multidimensionais
+$series = arrays(
+        "netflix"=> array("Agente noturno", "Dexter", "Lúcifer"),
+        "prime"=> array("Maxton hall", "Invencível", "The boys"),
+        "max"=> array("Rick e Morty", "Euphoria", "Friends")
+        );
+echo $series["netflix"][0];
+echo "<br>";
+echo $series["max"][2];
+echo "<br>";
+echo $series["prime"][1];
+echo "<br>";
+
+foreach($series["netflix"] as $indice => $valor) {
+  echo $indice . " : " . $valor . "<br>";
+}
 ?>
