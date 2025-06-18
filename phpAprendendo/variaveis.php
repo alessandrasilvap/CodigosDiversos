@@ -11,3 +11,4 @@ $destino = "cidade";
 $$destino = "Ilhéus";
 
 echo $destino;
+?>
