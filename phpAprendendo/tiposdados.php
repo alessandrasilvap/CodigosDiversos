@@ -74,3 +74,4 @@ echo "<hr>";
 //Null
 $cidade = NULL;
 var_dump($cidade);
+?>
