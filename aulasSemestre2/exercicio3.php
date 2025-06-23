@@ -20,10 +20,11 @@
 
   
   <form action="" method="POST">
-    <input type="number" name="valorHora">
-    <input type="number" name="valorHoraExtra">
-    <input type="number" name="horasNormais">
-    <input type="number" name="horasExtras">
+    <input type="number" name="valorHora"><br>
+    <input type="number" name="valorHoraExtra"><br>
+    <input type="number" name="horasNormais"><br>
+    <input type="number" name="horasExtras"><br>
+    <input type="reset" value="Limpar"> <input type="submit" value="Enviar">
   </form>
 </body>
 </html>
