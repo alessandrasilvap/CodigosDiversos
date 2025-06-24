@@ -1,4 +1,4 @@
-ALGORITMO "conteAte10"
+ALGORITMO "conteAte10-2"
 VAR
     valor, contador: Inteiro
 INICIO
