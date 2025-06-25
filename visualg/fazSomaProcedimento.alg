@@ -4,7 +4,7 @@ VAR
 Procedimento Soma(A, B: Inteiro)
 Inicio
       Escreval("Recebi o valor ", A")
-      Escreval("Recebi o valor ", b")
+      Escreval("Recebi o valor ", B")
       Escreval("A soma entre os dois é ", A + B")
 FimProcedimento
 INICIO
