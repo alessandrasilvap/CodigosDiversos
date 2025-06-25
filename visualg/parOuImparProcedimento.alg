@@ -3,6 +3,8 @@ VAR
     N: Inteiro
 Procedimento ParOuImpar(V: Inteiro)
 Inicio
+      Escreval("O valor de V e : ", V)
+      Escreval("O valor de V e : ", N)
       Se (V % 2 = 0) entao
             Escreval("O número  ", V, "é par.")
       Senao
@@ -10,7 +12,7 @@ Inicio
       FimSe
 FimProcedimento
 INICIO
-      Escreval("Digite um número: ")
+      Escreva("Digite um número: ")
       Leia(N)
       ParOuImpar(N)
 FIMALGORITMO
