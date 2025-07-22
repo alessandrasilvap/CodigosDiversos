@@ -7,3 +7,5 @@ create table usuario(
   nome VARCHAR(100),
   email VARCHAR(100),
   senha VARCHAR(100));
+
+INSERT usuario INTO ('VA988999', 'Marcelo', 'marceloteste1@gmail.com', 'MArcel85');
