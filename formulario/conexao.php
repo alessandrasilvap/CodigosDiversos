@@ -2,10 +2,15 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$bd_name = "form";
+$bdname = "form";
 
-$conn = mysqli($servername, $username, $password, $bd_name);
+$conn = new mysqli($servername, $username, $password, $bdname);
 
-if ($conn->conect) {
-  
+if ($conn -> conect_error) {
+  die("Falha na conexão: " . $conn -> conect_error);
+} else {
+  echo "Conectado com sucesso!";
+}
+
+$conn -> close();
 ?>
