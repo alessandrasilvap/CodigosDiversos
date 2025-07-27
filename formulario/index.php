@@ -1,44 +1,51 @@
 <?php
- public function salvar() {
-        //Verifica se o método de requisição é POST
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+//Inicia a sessão no início
+session_start();
+//Inclui a conexão com o banco de dados
+require_once('conexao.php');
 
-            //Obtém os dados do formulário
-            $dados = [
-                'nome' => strip_tags($_POST['nome']),
-                'email' => strip_tags($_POST['email'])
-            };
-            //Validações:
-            //Nome (apenas letras e espaços)
-            $nome = $dados['nome'];
 
-            if (!preg_match("/^[\p{L}\s]+$/u", $nome)) {
-                echo "<script>alert('Nome inválido. Use apenas letras e espaços.'); window.history.back();</script>";
-                exit;
-            }
-            //Email (validação com filter_var)
-            $email = $dados['email'];
-            if (!filter_var($dados['email'], FILTER_VALIDATE_EMAIL)) {
-                echo "<script>alert('E-mail inválido.'); window.history.back();</script>";
-                exit;
-            }
-            //Tenta salvar o novo usuário
-            if ($usuarioDAO->inserir($usuario)) {
-                echo "<script>alert('Cadastro finalizado!');</script>";
-                exit;
-            } else {
-                echo "Erro ao cadastrar o usuário. Tente novamente!";
-            }
-            private function validarDados($dados) {
-                foreach ($dados as $campo => $valor) {
-                    if (empty($valor)) {
-                        return "Campo {$campo} não pode ser vazio!";
-                    }  
-                }
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = strip_tags($_POST['email']);
+    $senha_digitada = $_POST['senha'];
 
-                foreach ($_POST as $campos => $valor) {
-                    $campo = strip_tags($valor);
-                }
-                return true;
-            }
+    //Validações
+    if (empty($email) || empty($senha_digitada)) {
+        echo "<script>alert('Por favor, preencha todos os campos.'); window.history.back();</script>";
+        exit;
+    }
+
+    //Prepara uma instrução SQL para evitar injeção de SQL
+    //A coluna 'senha' no BD deve conter o HASH da senha (definida no cadastro.php)
+    $stmt = $conn->prepare("SELECT nome, email, senha FROM usuario WHERE email = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $user = $result->fetch_assoc();
+
+        //Verifica a senha: compara a senha digitada com o HASH armazenado no BD
+        if (password_verify($senha_digitada, $user['senha'])) {
+            //Senha correta
+            $_SESSION['usuario'] = $user['nome'];
+            $_SESSION['email'] = $user['email'];
+
+            //Redireciona para a página principal
+            header('Location: principal.php');
+            exit;
+        } else {
+            //Senha incorreta
+            echo "<script>alert('Senha incorreta. Tente novamente.'); window.history.back();</script>";
+            exit;
+        }
+    } else {
+        //Nenhum usuário encontrado com esse e-mail
+        echo "<script>alert('Conta não encontrada. Verifique seu e-mail.'); window.history.back();</script>";
+        exit;
+    }
+
+    $stmt->close();
+    $conn->close(); //Fecha a conexão após o uso neste script
+}
 ?>
